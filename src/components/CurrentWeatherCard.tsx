@@ -47,7 +47,7 @@ export const CurrentWeatherCard = () => {
     WEATHER_API.DEFAULTS.UNIT;
 
   return (
-    <Card className='@container min-h-75 max-w-[600px]'>
+    <Card className='@container min-h-75'>
       <CardHeader>
         <CardTitle>Current Weather</CardTitle>
         <CardDescription>{currentWeather.dt}</CardDescription>

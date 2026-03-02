@@ -3,6 +3,7 @@ import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 // custom modules
 import { MAPBOX } from '@/config';
+import { Marker } from "@/components/Marker";
 
 // Hooks
 import { useEffect, useMemo, useRef, useState } from 'react';
@@ -56,7 +57,9 @@ export const Map = () => {
     <div ref={mapContainerRef}
      className="h-[300px] bg-card text-card-foreground
     shadow-sm overflow-hidden rounded-xl border">
-       
+       {map && (
+        <Marker map={map} coordinates={center}/>
+       )}
     </div>
   )
 }

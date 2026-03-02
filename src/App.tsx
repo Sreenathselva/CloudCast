@@ -5,6 +5,7 @@ import { WeatherProvider } from "@/components/WeatherProvider";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { CurrentWeatherCard } from "@/components/CurrentWeatherCard";
 import { Map } from "@/components/Map";
+import { HourlyWeatherTabs } from "@/components/HourlyWeatherTabs";
 export const App=()=>{
   return (
     <ThemeProvider>
@@ -21,7 +22,7 @@ export const App=()=>{
             <CurrentWeatherCard />
             <Map />
           </div>
-          
+          <HourlyWeatherTabs />
         </div>
       </main>
       </WeatherProvider>
