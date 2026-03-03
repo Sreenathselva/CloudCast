@@ -27,6 +27,12 @@ if(!weather) return <Skeleton className="w-40 h-4 mt-2 mb-6" />
                 {weather.location.state ? weather.location.state + ',' : ''}
                 {weather.location.country}
             </h2>
+
+            <Button variant={outline}
+            size={icon-sm}
+            onClick={()=>{}}>
+                <LocateFixedIcon />
+            </Button>
         </div>        
     )
 }
