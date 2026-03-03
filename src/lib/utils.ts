@@ -1,5 +1,5 @@
-import { clsx, type ClassValue } from "clsx"
-import { twMerge } from "tailwind-merge"
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
 
 // types //
 type GeolocationRes = {
@@ -7,22 +7,26 @@ type GeolocationRes = {
   lon: number;
 };
 
-
-
 export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
+  return twMerge(clsx(inputs));
 }
 
-
 // Get Current User GeoLocation
-export const getUserLocation = ();
+export const getUserLocation = ():
 Promise<GeolocationRes> => {
   return new Promise((resolve, reject)=>{
     if(!navigator.geolocation){
       reject('Geolocation is not supported by your browser')
     }else{
-      navigator.geolocation.getCurrentPosition
-      // 1:44:17
+      navigator.geolocation.getCurrentPosition((position)=>{
+        resolve({
+          lat: position.coords.latitude,
+          lon: position.coords.longitude
+        });
+      },(err)=>{
+          reject(err.message)
+        })
+     
     }
   })
 }

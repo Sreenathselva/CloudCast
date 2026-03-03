@@ -1,5 +1,6 @@
 
-//  custom modules //
+//  custom modules //\
+import { getUserLocation } from "@/lib/utils";
 import { APP } from "@/config";
 
 
@@ -11,7 +12,7 @@ import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 
 // assets //
-import { LocateFixedIcon } from "lucide-react";
+import { LocateFixed, LocateFixedIcon } from "lucide-react";
 
 
 export const PageHeader = ()=>{
@@ -27,10 +28,20 @@ if(!weather) return <Skeleton className="w-40 h-4 mt-2 mb-6" />
                 {weather.location.state ? weather.location.state + ',' : ''}
                 {weather.location.country}
             </h2>
+            <Button 
+            variant='outline'
+            size='icon-sm'
+            onClick={async()=>{
+                getUserLocation().then(({lat, lon})=>{
+                    setWeather({lat,lon});
 
-            <Button variant={outline}
-            size={icon-sm}
-            onClick={()=>{}}>
+                    localStorage.setItem(APP.STORE_KEY.LAT,lat.toString());
+                    localStorage.setItem(APP.STORE_KEY.LON,lon.toString());
+                }).catch((err)=>{
+                    alert(err);
+                });
+            }}
+            >
                 <LocateFixedIcon />
             </Button>
         </div>        
