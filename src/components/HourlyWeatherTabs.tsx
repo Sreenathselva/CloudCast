@@ -7,7 +7,16 @@ import { useState } from "react";
 import { Tabs, TabsTrigger, TabsList, TabsContent } from "@/components/ui/tabs";
 import {Card, CardHeader, CardTitle, CardContent} from "@/components/ui/card";
 import { OverviewChart } from "@/components/OverviewChart";
+import { PrecipitationChart } from "@/components/Precipitation";
+import { WindChart } from "@/components/WindChart";
+import { HumidityChart } from "@/components/HumidityChart";
+import { CloudCover } from "@/components/CloudCover";
+import { PressureChart } from "@/components/PressureChart";
+import { UvIndexChart } from "@/components/UvIndexChart";
+import { VisibilityChart } from "@/components/VisibilityChart";
+
 // types
+
 type Tab =
   | 'overview'
   | 'precipitation'
@@ -76,9 +85,9 @@ const [tab,setTab] = useState<Tab>('overview');
                     <TabsTrigger 
                     key={item.value}
                     value={item.value}
-                    className="border-none bg-secondary h-9 px-4 rounded-full data-[state=active]
-                    :bg-primary! data-[state=active]
-                    :text-background"
+                    className="border-none bg-secondary h-9 px-4 rounded-full 
+                    data-[state=active]:bg-primary!
+                    data-[state=active]:text-black!"
                     >{item.title}</TabsTrigger>
                 ))}
                 </TabsList>
@@ -92,6 +101,90 @@ const [tab,setTab] = useState<Tab>('overview');
                     </CardHeader>
                     <CardContent>
                         <OverviewChart />
+                    </CardContent>
+                </Card>
+            </TabsContent>
+
+            {/* Precipitation tab */}
+            <TabsContent value="precipitation">
+                <Card>
+                    <CardHeader>
+                        <CardTitle>Precipitation</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <PrecipitationChart />
+                    </CardContent>
+                </Card>
+            </TabsContent>
+            
+            {/* Wind tab */}
+            <TabsContent value="wind">
+                <Card>
+                    <CardHeader>
+                        <CardTitle>Wind</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <WindChart />
+                    </CardContent>
+                </Card>
+            </TabsContent>
+            
+            {/* Humidity tab */}
+            <TabsContent value="humidity">
+                <Card>
+                    <CardHeader>
+                        <CardTitle>Humidity</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <HumidityChart />
+                    </CardContent>
+                </Card>
+            </TabsContent>
+            
+            {/* Cloud cover tab */}
+            <TabsContent value="cloudCover">
+                <Card>
+                    <CardHeader>
+                        <CardTitle>Cloud cover</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <CloudCover />
+                    </CardContent>
+                </Card>
+            </TabsContent>
+            
+            {/* Pressure tab */}
+            <TabsContent value="pressure">
+                <Card>
+                    <CardHeader>
+                        <CardTitle>Pressure</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <PressureChart />
+                    </CardContent>
+                </Card>
+            </TabsContent>
+
+             {/* UV Index tab */}
+            <TabsContent value="uv">
+                <Card>
+                    <CardHeader>
+                        <CardTitle>UV</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <UvIndexChart />
+                    </CardContent>
+                </Card>
+            </TabsContent>
+            
+             {/* Visibility tab */}
+            <TabsContent value="visibility">
+                <Card>
+                    <CardHeader>
+                        <CardTitle>Visibility</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <VisibilityChart />
                     </CardContent>
                 </Card>
             </TabsContent>

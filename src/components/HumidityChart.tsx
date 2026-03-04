@@ -14,16 +14,16 @@ import { AreaChartIcon } from "lucide-react";
 // chart config
 
 const chartConfig = {
-  temp: {
-    label: 'Temperature',
-    color: 'var(--chart-1)',
+  humidity: {
+    label: 'Humidity',
+    color: 'var(--humidity)',
   },
-  feels: {
-    label: 'Feels like',
-    color: 'var(--muted-foreground)'
+  dew_point: {
+    label: 'Dew point',
+    color: 'var(--dew-point)'
   },
 } satisfies ChartConfig;
-export const OverviewChart = () => {
+export const HumidityChart = () => {
   // Hooks
   const { weather } = useWeather();
 
@@ -34,8 +34,8 @@ export const OverviewChart = () => {
         hour: 'numeric',
         hour12: true,
       }),
-      temp: item.temp.toFixed(),
-      feels: item.feels_like.toFixed(),
+      humidity: item.humidity,
+      dew_point: item.dew_point,
     }));
   }, [weather]);
 
@@ -46,6 +46,7 @@ export const OverviewChart = () => {
       className="h-[360px] w-full overflow-hidden"
     >
       <AreaChart accessibilityLayer data={chartData}>
+
         <CartesianGrid strokeDasharray={4} />
         <XAxis dataKey='hour' tickLine={false}
           axisLine={false}
@@ -53,12 +54,10 @@ export const OverviewChart = () => {
           tickMargin={16} />
 
         <YAxis
-          dataKey='temp'
+          dataKey='humidity'
           tickLine={false}
           axisLine={false}
-          tickCount={5}
           tickMargin={16}
-          tickFormatter={(value) => `${value}°`}
         />
 
         <ChartTooltip cursor={false}
@@ -67,37 +66,36 @@ export const OverviewChart = () => {
 
         <defs>
           <linearGradient
-            id="fillTemp" x1='0' y1='0'
+            id="fillHumidity" x1='0' y1='0'
             x2='0' y2='1'>
             <stop offset='0%'
-              stopColor="var(--temp-high)"
+              stopColor="var(--color-humidity)"
               stopOpacity={1}
             />
 
             
-            <stop offset='50%'
-              stopColor="var(--temp-mid)"
-              stopOpacity={0.5}
+            <stop offset='100%'
+              stopColor="var(--color-humidity)"
+              stopOpacity={0}
             />
 
             
-            <stop offset='100%'
-              stopColor="var(--temp-low)"
-              stopOpacity={0}
-            />
           </linearGradient>
         </defs>
 
-        <Area dataKey='temp' type='natural'
-          fill='url(#fillTemp)'
+        <Area 
+          dataKey='humidity' type='natural'
+          fill='url(#fillHumidity)'
           fillOpacity={0.5}
-          stroke='var(--color-temp)'
+          stroke='var(--color-humidity)'
           strokeOpacity={0} />
 
-        <Area dataKey='feels'
+        <Area 
+          dataKey='dew_point'
           fillOpacity={0}
+          fill="var(--color-dew_point)"
           type='natural'
-          stroke="var(--color-feels)"
+          stroke="var(--color-dew_point)"
           strokeWidth={2}
           activeDot={false}
         />

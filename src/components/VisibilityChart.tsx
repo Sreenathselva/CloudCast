@@ -14,16 +14,12 @@ import { AreaChartIcon } from "lucide-react";
 // chart config
 
 const chartConfig = {
-  temp: {
-    label: 'Temperature',
-    color: 'var(--chart-1)',
-  },
-  feels: {
-    label: 'Feels like',
-    color: 'var(--muted-foreground)'
-  },
+  visibility: {
+    label: 'visibility',
+    color: 'var(--visibility)',
+  }
 } satisfies ChartConfig;
-export const OverviewChart = () => {
+export const VisibilityChart = () => {
   // Hooks
   const { weather } = useWeather();
 
@@ -34,8 +30,7 @@ export const OverviewChart = () => {
         hour: 'numeric',
         hour12: true,
       }),
-      temp: item.temp.toFixed(),
-      feels: item.feels_like.toFixed(),
+      visibility: item.visibility
     }));
   }, [weather]);
 
@@ -53,12 +48,11 @@ export const OverviewChart = () => {
           tickMargin={16} />
 
         <YAxis
-          dataKey='temp'
+          dataKey='visibility'
           tickLine={false}
           axisLine={false}
-          tickCount={5}
+          tickCount={3}
           tickMargin={16}
-          tickFormatter={(value) => `${value}°`}
         />
 
         <ChartTooltip cursor={false}
@@ -67,31 +61,24 @@ export const OverviewChart = () => {
 
         <defs>
           <linearGradient
-            id="fillTemp" x1='0' y1='0'
+            id="fillVisibility" x1='0' y1='0'
             x2='0' y2='1'>
             <stop offset='0%'
-              stopColor="var(--temp-high)"
+              stopColor="var(--visibility)"
               stopOpacity={1}
             />
 
-            
-            <stop offset='50%'
-              stopColor="var(--temp-mid)"
-              stopOpacity={0.5}
-            />
-
-            
             <stop offset='100%'
-              stopColor="var(--temp-low)"
+              stopColor="var(--visibility)"
               stopOpacity={0}
             />
           </linearGradient>
         </defs>
 
-        <Area dataKey='temp' type='natural'
-          fill='url(#fillTemp)'
+        <Area dataKey='visibility' type='natural'
+          fill='url(#fillVisibility)'
           fillOpacity={0.5}
-          stroke='var(--color-temp)'
+          stroke='var(--visibility)'
           strokeOpacity={0} />
 
         <Area dataKey='feels'
