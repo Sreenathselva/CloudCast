@@ -1,73 +1,114 @@
-# React + TypeScript + Vite
+☁️ CloudCast – Weather Forecast App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+CloudCast is a modern weather web application that allows users to check real-time weather conditions and forecasts for any city worldwide. The app provides a clean interface, dynamic weather visuals, and detailed climate information such as temperature, humidity, wind speed, and atmospheric conditions.
 
-Currently, two official plugins are available:
+🔗 Live Demo: https://cloudcastt.netlify.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🔗 GitHub Repository: https://github.com/Sreenathselva/CloudCast
 
-## React Compiler
+🚀 Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+🌍 Search weather for any city worldwide
 
-## Expanding the ESLint configuration
+🌡️ Real-time temperature and weather conditions
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+💨 Wind speed and humidity details
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+📊 Clean and modern UI design
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+⚡ Fast performance with API integration
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+📱 Fully responsive design (mobile, tablet, desktop)
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+🎨 Dynamic weather icons and UI updates
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+🖼️ Preview
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+You can view the live version here:
+
+👉 https://cloudcastt.netlify.app/
+
+(Add screenshots here if you want — GitHub README looks better with screenshots.)
+
+Example:
+
+![CloudCast Screenshot](./screenshot.png)
+🛠️ Tech Stack
+
+This project is built using modern frontend technologies:
+
+React.js
+
+JavaScript (ES6+)
+
+Vite
+
+Tailwind CSS / CSS
+
+Weather API
+
+Netlify (Deployment)
+
+📂 Project Structure
+CloudCast
+│
+├── public
+├── src
+│   ├── components
+│   ├── hooks
+│   ├── assets
+│   ├── App.jsx
+│   └── main.jsx
+│
+├── package.json
+├── vite.config.js
+└── README.md
+⚙️ Installation & Setup
+
+Follow these steps to run the project locally.
+
+1️⃣ Clone the repository
+git clone https://github.com/Sreenathselva/CloudCast.git
+2️⃣ Navigate to the project folder
+cd CloudCast
+3️⃣ Install dependencies
+npm install
+4️⃣ Start the development server
+npm run dev
+
+The app will run on:
+
+http://localhost:5173
+🌐 Deployment
+
+The project is deployed using Netlify.
+
+To deploy:
+
+npm run build
+
+Then upload the dist folder to Netlify.
+
+📈 Future Improvements
+
+🌦️ 7-day weather forecast
+
+📍 Auto location detection
+
+🌙 Dark / Light mode
+
+📊 Weather charts & graphs
+
+🔔 Weather alerts
+
+👨‍💻 Author
+
+Selva Sreenath S
+
+Frontend Developer
+
+🔗 LinkedIn: https://www.linkedin.com/in/selva-sreenath-s-84895a253/
+
+🔗 GitHub: https://github.com/Sreenathselva
+
+⭐ If you like this project, consider giving it a star on GitHub!
